@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <title>Louie James D. Baculio | Portfolio</title>
 
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+/* --- Reset & Base --- */
 * {
   margin: 0;
   padding: 0;
@@ -20,7 +22,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Navigation */
+/* --- Navigation --- */
 nav {
   position: sticky;
   top: 0;
@@ -47,7 +49,7 @@ nav a:hover {
   transform: scale(1.1);
 }
 
-/* Container */
+/* --- Container --- */
 .container {
   max-width: 900px;
   margin: 60px auto;
@@ -58,7 +60,7 @@ nav a:hover {
   overflow: hidden;
 }
 
-/* Header */
+/* --- Header --- */
 header {
   display: flex;
   align-items: center;
@@ -85,20 +87,18 @@ header h1 {
   margin-bottom: 30px;
 }
 
-/* Sections */
+/* --- Sections --- */
 section {
-  margin-top: 120px;
-  transition: all 0.6s ease;
+  margin-top: 120px; /* vertical spacing */
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease-in-out;
+  cursor: pointer;
 }
 
-section.blurred {
-  filter: blur(6px);
-  opacity: 0.4;
-}
-
-section.active {
-  filter: none;
+section.visible {
   opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
@@ -109,6 +109,7 @@ h2 {
   margin-bottom: 15px;
 }
 
+/* --- Paragraphs & Lists --- */
 p, li {
   font-size: 16px;
   line-height: 1.7;
@@ -119,7 +120,7 @@ ul {
   margin-left: 20px;
 }
 
-/* Badges */
+/* --- Skills / Hobbies / Interests Badges --- */
 .skill, .hobby, .interest {
   display: inline-block;
   background-color: #00bcd4;
@@ -137,13 +138,19 @@ ul {
   transform: scale(1.1);
 }
 
-/* Contact NEVER blurs */
-#contact {
-  filter: none !important;
-  opacity: 1 !important;
+/* --- Contact Links --- */
+.contact-link {
+  color: #00bcd4;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 
-/* Footer */
+.contact-link:hover {
+  color: #00e5ff;
+  transform: scale(1.05);
+}
+
+/* --- Footer --- */
 footer {
   margin-top: 60px;
   text-align: center;
@@ -151,7 +158,42 @@ footer {
   color: #80deea;
 }
 
-/* Responsive */
+/* --- Modal --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #00bcd4;
+  padding: 20px;
+}
+
+.modal img {
+  max-width: 80%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.modal-desc {
+  font-size: 16px;
+  max-width: 700px;
+  text-align: center;
+}
+
+.modal .close {
+  position: absolute;
+  top: 20px; right: 40px;
+  color: #00bcd4;
+  font-size: 40px;
+  cursor: pointer;
+}
+
+/* --- Responsive --- */
 @media screen and (max-width: 600px) {
   header {
     flex-direction: column;
@@ -163,6 +205,7 @@ footer {
 
 <body>
 
+<!-- --- Navigation --- -->
 <nav>
   <a data-target="about">About</a>
   <a data-target="education">Education</a>
@@ -171,6 +214,13 @@ footer {
   <a data-target="hobbies">Hobbies</a>
   <a data-target="contact">Contact</a>
 </nav>
+
+<!-- --- Modal --- -->
+<div id="modal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-img" src="" alt="">
+  <div class="modal-desc"></div>
+</div>
 
 <div class="container">
 <header>
@@ -183,103 +233,121 @@ footer {
   </div>
 </header>
 
-<main>
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hello! My name is Louie James D. Baculio, and I am 17 years Old. I am a student driven by curiosity,
+        creativity, and a strong interest in frontend design and web development. From a young age, I have been
+        fascinated by how websites and digital interfaces are built and how design and code come together to create 
+        engaging user experiences. What excites me most about frontend design is the ability to turn ideas into
+        interactive, visually appealing, and functional digital products.
+        As I continue my journey in technology, I focus on learning and improving my skills in frontend development,
+        combining creativity with problem-solving and attention to detail. Every project I work on helps me better
+        understand how design, responsiveness, and performance impact user experience. I strive to build interfaces
+        that are not only visually attractive but also accessible and user-friendly.
+        Outside of academics, I enjoy resting, reading to expand my knowledge, and spending time with the people
+        who motivate me. I am proud to be recognized for my academic efforts and remain passionate about frontend
+        design, where creativity and technology come together to bring ideas to life.
+      </p>
+    </section>
 
-<section id="about">
-<h2>About Me</h2>
-<p>
-Hello! My Name is Louie James D. Baculio, and I am 17 years Old. I am a student driven by curiosity,
-creativity, and a strong interest in frontend design and web development. From a young age, I have been
-fascinated by how websites and digital interfaces are built and how design and code come together to create 
-engaging user experiences. What excites me most about frontend design is the ability to turn ideas into
-interactive, visually appealing, and functional digital products.
-As I continue my journey in technology, I focus on learning and improving my skills in frontend development,
-combining creativity with problem-solving and attention to detail. Every project I work on helps me better
-understand how design, responsiveness, and performance impact user experience. I strive to build interfaces
-that are not only visually attractive but also accessible and user-friendly.
-Outside of academics, I enjoy resting, reading to expand my knowledge, and spending time with the people
-who motivate me. I am proud to be recognized for my academic efforts and remain passionate about frontend
-design, where creativity and technology come together to bring ideas to life.
-</p>
-</section>
+    <section id="education">
+      <h2>Education</h2>
+      <ul>
+        <li>Liceo de Cagayan University – Senior High School - Present - University Honor</li>
+        <li>Pagatpat National High School – Junior High School – 2023 - Consistent Honor Student</li>
+        <li>Pagatpat Elementary School – Elementary – 2019</li>
+      </ul>
+    </section>
 
-<section id="education">
-<h2>Education</h2>
-<ul>
-<li>Liceo de Cagayan University – Senior High School - Present - University Honor</li>
-<li>Pagatpat National High School – Junior High School – 2023 - Consistent Honor Student</li>
-<li>Pagatpat Elementary School – Elementary – 2019</li>
-</ul>
-</section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <span class="skill" data-title="Basic Computer Wirings" data-img="https://via.placeholder.com/400x200?text=Basic+Computer+Wirings" data-desc="I can do basic computer wirings including connecting components and troubleshooting. Because of my CSS training at 4J and E Technical School">💻 Basic Computer Wirings</span>
+        <span class="skill" data-title="Graphic Designing" data-img="https://dreamteam.fandom.com/wiki/MrBeast" data-desc="I create visual designs using tools like Photoshop and Canva. mainly Because I am the Assign Daily poster of Our Church Youth Organization ">🎨 Graphic Designing</span>
+        <span class="skill" data-title="Frontend Designing" data-img="https://via.placeholder.com/400x200?text=Frontend+Designing" data-desc="I build interactive Basic and responsive web interfaces using HTML, CSS, and JS. thanks to my Titos And kuyas who Teach me but Im still at the Biginner stage">🖥️ Frontend Designing</span>
+      </div>
+    </section>
 
-<section id="skills">
-<h2>Skills</h2>
-<span class="skill">💻 Basic Computer Wirings</span>
-<span class="skill">🎨 Graphic Designing</span>
-<span class="skill">🖥️ Frontend Designing</span>
-</section>
+    <section id="interests">
+      <h2>Interests</h2>
+      <div class="interests-container">
+        <span class="interest" data-title="Music/Instruments" data-img="https://via.placeholder.com/400x200?text=Music" data-desc="I love music and enjoy playing instruments. i think Music Is Medicine to all It just Give me Peace when My Mind Is loaded with all And Everything ">🎵 Music/Instruments</span>
+        <span class="interest" data-title="Thrilling Stuffs" data-img="https://via.placeholder.com/400x200?text=Thrilling" data-desc="I like adventurous and thrilling activities I dont know maybe im just explorer You Can Say Im That One Hardcore Friend">⚡ Thrilling Stuffs</span>
+        <span class="interest" data-title="Anime" data-img="https://via.placeholder.com/400x200?text=Anime" data-desc="I enjoy watching anime for storytelling and art and it also calms My mind When Im Stressed">🌸 Anime</span>
+        <span class="interest" data-title="Movies" data-img="https://via.placeholder.com/400x200?text=Movies" data-desc="I watch movies to relax and learn new perspectives.">🎥 Movies</span>
+      </div>
+    </section>
 
-<section id="interests">
-<h2>Interests</h2>
-<span class="interest">🎵 Music/Instruments</span>
-<span class="interest">⚡ Thrilling Stuffs</span>
-<span class="interest">🌸 Anime</span>
-<span class="interest">🎥 Movies</span>
-</section>
+    <section id="hobbies">
+      <h2>Hobbies</h2>
+      <div class="hobbies-container">
+        <span class="hobby" data-title="Playing Instruments" data-img="https://via.placeholder.com/400x200?text=Instruments" data-desc="I play various musical instruments for fun and skill development And Im Proud To Say I can Play more than 5 Instruments, And i think its because im part of the music team in our church">🎹 Playing Instruments</span>
+        <span class="hobby" data-title="Playing Badminton" data-img="https://via.placeholder.com/400x200?text=Badminton" data-desc="I enjoy playing badminton to stay active and competitive And Badminton Has Always Been My sport Ever Since, im also once a player in my previous school.">🏸 Playing Badminton</span>
+        <span class="hobby" data-title="Watching Movies/Anime" data-img="https://via.placeholder.com/400x200?text=Movies+Anime" data-desc="I watch movies and anime for entertainment and inspiration.">🎬 Watching Movies & Anime</span>
+        <span class="hobby" data-title="Cooking" data-img="https://via.placeholder.com/400x200?text=Cooking" data-desc="I like to cook different dishes to learn and relax.">🍳 Cooking</span>
+        <span class="hobby" data-title="Sleeping" data-img="https://via.placeholder.com/400x200?text=Sleeping" data-desc="I rest and sleep to recharge my energy and focus and Maybe Because I feel like When I sleep, once I woke Up all my problem will restart And I can get to Do Task I fail to Do">🛌 Sleeping</span>
+      </div>
+    </section>
 
-<section id="hobbies">
-<h2>Hobbies</h2>
-<span class="hobby">🎹 Playing Instruments</span>
-<span class="hobby">🏸 Playing Badminton</span>
-<span class="hobby">🎬 Watching Movies & Anime</span>
-<span class="hobby">🍳 Cooking</span>
-<span class="hobby">🛌 Sleeping</span>
-</section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <ul>
+        <li><a class="contact-link" href="mailto:louiejamesbaculio@email.com">Email: louiejamesbaculio@email.com</a></li>
+        <li><a class="contact-link" href="tel:09155819112">Phone: 09155819112</a></li>
+        <li><a class="contact-link" href="https://www.facebook.com/louiejamesbaculio" target="_blank">Facebook: Louie James Baculio</a></li>
+        <li><a class="contact-link" href="https://www.instagram.com/_louyxs_" target="_blank">Instagram: _louyxs_</a></li>
+      </ul>
+    </section>
+  </main>
 
-<section id="contact">
-<h2>Contact</h2>
-<ul>
-<li>Email: louiejamesbaculio@email.com</li>
-<li>Phone: 09155819112</li>
-<li>Facebook: Louie James Baculio</li>
-<li>Instagram: _louyxs_</li>
-</ul>
-</section>
-
-</main>
-
-<footer>© 2025 Louie James D. Baculio</footer>
+  <footer>
+    © 2025 Louie James D. Baculio
+  </footer>
 </div>
 
 <script>
+// --- Section Fade-in Animation ---
 const sections = document.querySelectorAll("section");
-
-function updateFocus() {
-  const center = window.innerHeight / 2;
-
-  sections.forEach(section => {
-    if (section.id === "contact") return;
-
-    const rect = section.getBoundingClientRect();
-    const sectionCenter = rect.top + rect.height / 2;
-
-    if (Math.abs(sectionCenter - center) < rect.height / 2) {
-      section.classList.add("active");
-      section.classList.remove("blurred");
-    } else {
-      section.classList.remove("active");
-      section.classList.add("blurred");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add("visible");
     }
   });
-}
+}, { threshold: 0.1 });
 
-window.addEventListener("scroll", updateFocus);
-updateFocus();
+sections.forEach(section => observer.observe(section));
 
-document.querySelectorAll("nav a").forEach(link => {
-  link.addEventListener("click", () => {
-    document.getElementById(link.dataset.target)
-      .scrollIntoView({ behavior: "smooth", block: "center" });
+// --- Modal Handling for individual items ---
+const modal = document.getElementById('modal');
+const modalImg = document.querySelector('.modal-img');
+const modalDesc = document.querySelector('.modal-desc');
+const closeBtn = document.querySelector('.close');
+
+document.querySelectorAll('.skill, .hobby, .interest').forEach(item => {
+  item.addEventListener('click', () => {
+    const img = item.dataset.img;
+    const desc = item.dataset.desc;
+    const title = item.dataset.title;
+    modal.style.display = 'flex';
+    modalImg.src = img;
+    modalDesc.innerHTML = `<strong>${title}</strong><br>${desc}`;
+  });
+});
+
+closeBtn.addEventListener('click', () => modal.style.display = 'none');
+modal.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+
+// --- Smooth scroll centered ---
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const targetId = link.getAttribute('data-target');
+    const targetSection = document.getElementById(targetId);
+    if(targetSection){
+      targetSection.scrollIntoView({behavior: 'smooth', block: 'center'});
+    }
   });
 });
 </script>
