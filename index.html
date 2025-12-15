@@ -4,11 +4,9 @@
 <meta charset="UTF-8">
 <title>Louie James D. Baculio | Portfolio</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* --- Reset & Base --- */
 * {
   margin: 0;
   padding: 0;
@@ -40,8 +38,8 @@ nav a {
   color: #00bcd4;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 nav a:hover {
@@ -57,14 +55,12 @@ nav a:hover {
   background-color: #1a1a2e;
   border-radius: 12px;
   box-shadow: 0 0 20px rgba(0,188,212,0.3);
-  overflow: hidden;
 }
 
 /* --- Header --- */
 header {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -77,41 +73,38 @@ header img {
 }
 
 header h1 {
-  font-size: 36px;
   color: #00bcd4;
+  font-size: 36px;
 }
 
 .subtitle {
-  font-size: 16px;
   color: #80deea;
   margin-bottom: 30px;
 }
 
 /* --- Sections --- */
 section {
-  margin-top: 120px; /* vertical spacing */
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease-in-out;
-  cursor: pointer;
+  margin-top: 160px;
+  transition: all 0.6s ease;
+  filter: blur(7px);
+  opacity: 0.35;
 }
 
-section.visible {
+section.active {
+  filter: blur(0);
   opacity: 1;
-  transform: translateY(0);
 }
 
+/* --- Titles --- */
 h2 {
-  font-size: 28px;
   color: #00bcd4;
   border-bottom: 2px solid #00bcd4;
   padding-bottom: 5px;
   margin-bottom: 15px;
 }
 
-/* --- Paragraphs & Lists --- */
+/* --- Text --- */
 p, li {
-  font-size: 16px;
   line-height: 1.7;
   color: #cfd8dc;
 }
@@ -120,57 +113,33 @@ ul {
   margin-left: 20px;
 }
 
-/* --- Skills / Hobbies / Interests Badges --- */
+/* --- Badges --- */
 .skill, .hobby, .interest {
   display: inline-block;
-  background-color: #00bcd4;
+  background: #00bcd4;
   color: #0f0f1a;
   padding: 8px 15px;
   border-radius: 20px;
-  font-size: 14px;
-  transition: transform 0.3s, background-color 0.3s;
+  margin: 5px;
   cursor: pointer;
-  margin-bottom: 5px;
+  transition: 0.3s;
 }
 
 .skill:hover, .hobby:hover, .interest:hover {
-  background-color: #00e5ff;
+  background: #00e5ff;
   transform: scale(1.1);
-}
-
-/* --- Contact Links --- */
-.contact-link {
-  color: #00bcd4;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.contact-link:hover {
-  color: #00e5ff;
-  transform: scale(1.05);
-}
-
-/* --- Footer --- */
-footer {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 14px;
-  color: #80deea;
 }
 
 /* --- Modal --- */
 .modal {
   display: none;
   position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
   z-index: 2000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #00bcd4;
-  padding: 20px;
 }
 
 .modal img {
@@ -180,32 +149,31 @@ footer {
 }
 
 .modal-desc {
-  font-size: 16px;
+  color: #00bcd4;
   max-width: 700px;
   text-align: center;
 }
 
-.modal .close {
+.close {
   position: absolute;
-  top: 20px; right: 40px;
-  color: #00bcd4;
+  top: 20px;
+  right: 40px;
   font-size: 40px;
+  color: #00bcd4;
   cursor: pointer;
 }
 
-/* --- Responsive --- */
-@media screen and (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-  }
+/* --- Footer --- */
+footer {
+  margin-top: 80px;
+  text-align: center;
+  color: #80deea;
 }
 </style>
 </head>
 
 <body>
 
-<!-- --- Navigation --- -->
 <nav>
   <a data-target="about">About</a>
   <a data-target="education">Education</a>
@@ -215,141 +183,98 @@ footer {
   <a data-target="contact">Contact</a>
 </nav>
 
-<!-- --- Modal --- -->
 <div id="modal" class="modal">
   <span class="close">&times;</span>
-  <img class="modal-img" src="" alt="">
+  <img class="modal-img">
   <div class="modal-desc"></div>
 </div>
 
 <div class="container">
 <header>
-  <img src="loy.jpg" alt="ako.jpg">
+  <img src="loy.jpg" alt="Profile">
   <div>
     <h1>Louie James D. Baculio</h1>
-    <div class="subtitle">
-      Senior High School Student • Liceo de Cagayan University • University Honor
-    </div>
+    <div class="subtitle">Senior High School Student • University Honor</div>
   </div>
 </header>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Hello! My name is Louie James D. Baculio, and I am 17 years Old. I am a student driven by curiosity,
-        creativity, and a strong interest in frontend design and web development. From a young age, I have been
-        fascinated by how websites and digital interfaces are built and how design and code come together to create 
-        engaging user experiences. What excites me most about frontend design is the ability to turn ideas into
-        interactive, visually appealing, and functional digital products.
-        As I continue my journey in technology, I focus on learning and improving my skills in frontend development,
-        combining creativity with problem-solving and attention to detail. Every project I work on helps me better
-        understand how design, responsiveness, and performance impact user experience. I strive to build interfaces
-        that are not only visually attractive but also accessible and user-friendly.
-        Outside of academics, I enjoy resting, reading to expand my knowledge, and spending time with the people
-        who motivate me. I am proud to be recognized for my academic efforts and remain passionate about frontend
-        design, where creativity and technology come together to bring ideas to life.
-      </p>
-    </section>
+<main>
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li>Liceo de Cagayan University – Senior High School - Present - University Honor</li>
-        <li>Pagatpat National High School – Junior High School – 2023 - Consistent Honor Student</li>
-        <li>Pagatpat Elementary School – Elementary – 2019</li>
-      </ul>
-    </section>
+<section id="about">
+  <h2>About Me</h2>
+  <p>...</p>
+</section>
 
-    <section id="skills">
-      <h2>Skills</h2>
-      <div class="skills-container">
-        <span class="skill" data-title="Basic Computer Wirings" data-img="https://via.placeholder.com/400x200?text=Basic+Computer+Wirings" data-desc="I can do basic computer wirings including connecting components and troubleshooting. Because of my CSS training at 4J and E Technical School">💻 Basic Computer Wirings</span>
-        <span class="skill" data-title="Graphic Designing" data-img="https://dreamteam.fandom.com/wiki/MrBeast" data-desc="I create visual designs using tools like Photoshop and Canva. mainly Because I am the Assign Daily poster of Our Church Youth Organization ">🎨 Graphic Designing</span>
-        <span class="skill" data-title="Frontend Designing" data-img="https://via.placeholder.com/400x200?text=Frontend+Designing" data-desc="I build interactive Basic and responsive web interfaces using HTML, CSS, and JS. thanks to my Titos And kuyas who Teach me but Im still at the Biginner stage">🖥️ Frontend Designing</span>
-      </div>
-    </section>
+<section id="education">
+  <h2>Education</h2>
+  <ul>
+    <li>Liceo de Cagayan University – SHS – University Honor</li>
+    <li>Pagatpat National High School – JHS</li>
+    <li>Pagatpat Elementary School</li>
+  </ul>
+</section>
 
-    <section id="interests">
-      <h2>Interests</h2>
-      <div class="interests-container">
-        <span class="interest" data-title="Music/Instruments" data-img="https://via.placeholder.com/400x200?text=Music" data-desc="I love music and enjoy playing instruments. i think Music Is Medicine to all It just Give me Peace when My Mind Is loaded with all And Everything ">🎵 Music/Instruments</span>
-        <span class="interest" data-title="Thrilling Stuffs" data-img="https://via.placeholder.com/400x200?text=Thrilling" data-desc="I like adventurous and thrilling activities I dont know maybe im just explorer You Can Say Im That One Hardcore Friend">⚡ Thrilling Stuffs</span>
-        <span class="interest" data-title="Anime" data-img="https://via.placeholder.com/400x200?text=Anime" data-desc="I enjoy watching anime for storytelling and art and it also calms My mind When Im Stressed">🌸 Anime</span>
-        <span class="interest" data-title="Movies" data-img="https://via.placeholder.com/400x200?text=Movies" data-desc="I watch movies to relax and learn new perspectives.">🎥 Movies</span>
-      </div>
-    </section>
+<section id="skills">
+  <h2>Skills</h2>
+  <span class="skill" data-title="Frontend" data-img="loy.jpg" data-desc="Frontend development using HTML, CSS, JS">🖥 Frontend</span>
+</section>
 
-    <section id="hobbies">
-      <h2>Hobbies</h2>
-      <div class="hobbies-container">
-        <span class="hobby" data-title="Playing Instruments" data-img="https://via.placeholder.com/400x200?text=Instruments" data-desc="I play various musical instruments for fun and skill development And Im Proud To Say I can Play more than 5 Instruments, And i think its because im part of the music team in our church">🎹 Playing Instruments</span>
-        <span class="hobby" data-title="Playing Badminton" data-img="https://via.placeholder.com/400x200?text=Badminton" data-desc="I enjoy playing badminton to stay active and competitive And Badminton Has Always Been My sport Ever Since, im also once a player in my previous school.">🏸 Playing Badminton</span>
-        <span class="hobby" data-title="Watching Movies/Anime" data-img="https://via.placeholder.com/400x200?text=Movies+Anime" data-desc="I watch movies and anime for entertainment and inspiration.">🎬 Watching Movies & Anime</span>
-        <span class="hobby" data-title="Cooking" data-img="https://via.placeholder.com/400x200?text=Cooking" data-desc="I like to cook different dishes to learn and relax.">🍳 Cooking</span>
-        <span class="hobby" data-title="Sleeping" data-img="https://via.placeholder.com/400x200?text=Sleeping" data-desc="I rest and sleep to recharge my energy and focus and Maybe Because I feel like When I sleep, once I woke Up all my problem will restart And I can get to Do Task I fail to Do">🛌 Sleeping</span>
-      </div>
-    </section>
+<section id="interests">
+  <h2>Interests</h2>
+  <span class="interest" data-title="Anime" data-img="loy.jpg" data-desc="Anime storytelling and art">🌸 Anime</span>
+</section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li><a class="contact-link" href="mailto:louiejamesbaculio@email.com">Email: louiejamesbaculio@email.com</a></li>
-        <li><a class="contact-link" href="tel:09155819112">Phone: 09155819112</a></li>
-        <li><a class="contact-link" href="https://www.facebook.com/louiejamesbaculio" target="_blank">Facebook: Louie James Baculio</a></li>
-        <li><a class="contact-link" href="https://www.instagram.com/_louyxs_" target="_blank">Instagram: _louyxs_</a></li>
-      </ul>
-    </section>
-  </main>
+<section id="hobbies">
+  <h2>Hobbies</h2>
+  <span class="hobby" data-title="Badminton" data-img="loy.jpg" data-desc="Competitive badminton player">🏸 Badminton</span>
+</section>
 
-  <footer>
-    © 2025 Louie James D. Baculio
-  </footer>
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Email: louiejamesbaculio@email.com</p>
+</section>
+
+</main>
+
+<footer>© 2025 Louie James D. Baculio</footer>
 </div>
 
 <script>
-// --- Section Fade-in Animation ---
 const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver((entries) => {
+
+/* Center scroll */
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    const target = document.getElementById(link.dataset.target);
+    target.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
+});
+
+/* Focus observer */
+const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
+    if (entry.isIntersecting) {
+      sections.forEach(s => s.classList.remove("active"));
+      entry.target.classList.add("active");
     }
   });
-}, { threshold: 0.1 });
+}, { threshold: 0.6 });
 
 sections.forEach(section => observer.observe(section));
 
-// --- Modal Handling for individual items ---
-const modal = document.getElementById('modal');
-const modalImg = document.querySelector('.modal-img');
-const modalDesc = document.querySelector('.modal-desc');
-const closeBtn = document.querySelector('.close');
-
-document.querySelectorAll('.skill, .hobby, .interest').forEach(item => {
-  item.addEventListener('click', () => {
-    const img = item.dataset.img;
-    const desc = item.dataset.desc;
-    const title = item.dataset.title;
-    modal.style.display = 'flex';
-    modalImg.src = img;
-    modalDesc.innerHTML = `<strong>${title}</strong><br>${desc}`;
-  });
+/* Modal */
+const modal = document.getElementById("modal");
+const modalImg = document.querySelector(".modal-img");
+const modalDesc = document.querySelector(".modal-desc");
+document.querySelectorAll(".skill,.hobby,.interest").forEach(item => {
+  item.onclick = () => {
+    modal.style.display = "flex";
+    modalImg.src = item.dataset.img;
+    modalDesc.innerHTML = `<b>${item.dataset.title}</b><br>${item.dataset.desc}`;
+  };
 });
-
-closeBtn.addEventListener('click', () => modal.style.display = 'none');
-modal.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
-
-// --- Smooth scroll centered ---
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const targetId = link.getAttribute('data-target');
-    const targetSection = document.getElementById(targetId);
-    if(targetSection){
-      targetSection.scrollIntoView({behavior: 'smooth', block: 'center'});
-    }
-  });
-});
+document.querySelector(".close").onclick = () => modal.style.display = "none";
+modal.onclick = e => e.target === modal && (modal.style.display = "none");
 </script>
 
 </body>
