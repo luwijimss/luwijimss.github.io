@@ -143,6 +143,12 @@ ul {
   font-size: 40px;
   cursor: pointer;
 }
+  /* Contact should never blur */
+#contact {
+  filter: none !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
 </style>
 </head>
 
@@ -245,6 +251,14 @@ function updateFocus() {
   const center = window.innerHeight / 2;
 
   sections.forEach(section => {
+
+    // 👇 Skip contact section completely
+    if (section.id === "contact") {
+      section.classList.remove("blurred");
+      section.classList.remove("active");
+      return;
+    }
+
     const rect = section.getBoundingClientRect();
     const sectionCenter = rect.top + rect.height / 2;
 
