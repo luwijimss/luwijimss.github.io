@@ -58,6 +58,27 @@ footer {
   font-size: 14px;
   color: #888;
 }
+    .skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.skill {
+  background-color: #1a73e8;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: transform 0.3s, background-color 0.3s;
+  cursor: default;
+}
+
+.skill:hover {
+  background-color: #155ab6;
+  transform: scale(1.1);
+}
 </style>
 
 <body>
@@ -99,13 +120,13 @@ footer {
       </section>
 
       <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-          <li>Basic Computer Wirings</li>
-          <li>Graphic Designing</li>
-          <li>Frontend Designing</li>
-        </ul>
-      </section>
+  <h2>Skills</h2>
+  <div class="skills-container">
+    <span class="skill">Basic Computer Wirings</span>
+    <span class="skill">Graphic Designing</span>
+    <span class="skill">Frontend Designing</span>
+  </div>
+</section>
 
       <section id="interests">
         <h2>Interests</h2>
