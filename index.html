@@ -7,10 +7,36 @@
 /* --- General Body --- */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #000000;
-  color: #00f0ff; /* neon blue text */
+  background-color: #000;
+  color: #00f0ff;
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth; /* Smooth scrolling */
+}
+
+/* --- Sticky Navigation --- */
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #111;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 15px 0;
+  z-index: 1000;
+  border-bottom: 2px solid #00f0ff;
+}
+
+nav a {
+  color: #00f0ff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s, transform 0.3s;
+}
+
+nav a:hover {
+  color: #00b0ff;
+  transform: scale(1.1);
 }
 
 /* --- Container --- */
@@ -18,7 +44,7 @@ body {
   max-width: 900px;
   margin: auto;
   padding: 40px;
-  background-color: #111; /* slightly lighter black */
+  background-color: #111;
   border-radius: 10px;
   box-shadow: 0 0 20px #00f0ff33;
 }
@@ -71,12 +97,24 @@ ul {
   border-radius: 20px;
   font-size: 14px;
   transition: transform 0.3s, background-color 0.3s;
-  cursor: default;
+  cursor: pointer;
 }
 
 .skill:hover {
   background-color: #00b0ff;
   transform: scale(1.1);
+}
+
+/* --- Social / Contact Links Hover --- */
+.contact-link {
+  color: #00f0ff;
+  text-decoration: none;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.contact-link:hover {
+  color: #00b0ff;
+  transform: scale(1.05);
 }
 
 /* --- Footer --- */
@@ -87,7 +125,7 @@ footer {
   color: #00dfff;
 }
 
-/* --- Neon Glow Effect --- */
+/* --- Neon Glow --- */
 h1, h2, .skill {
   text-shadow: 0 0 5px #00f0ff, 0 0 10px #00f0ff, 0 0 20px #00f0ff;
 }
@@ -95,10 +133,32 @@ h1, h2, .skill {
 .container {
   box-shadow: 0 0 15px #00f0ff66;
 }
+
+/* --- Responsive --- */
+@media screen and (max-width: 600px) {
+  .skills-container {
+    flex-direction: column;
+  }
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
 </style>
 </head>
 
 <body>
+
+<!-- --- Navigation --- -->
+<nav>
+  <a href="#about">About</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#interests">Interests</a>
+  <a href="#hobbies">Hobbies</a>
+  <a href="#contact">Contact</a>
+</nav>
+
 <div class="container">
   <header>
     <h1>Louie James D. Baculio</h1>
@@ -157,10 +217,10 @@ h1, h2, .skill {
     <section id="contact">
       <h2>Contact</h2>
       <ul>
-        <li>Email: louiejamesbaculio@email.com</li>
-        <li>Phone: 09155819112</li>
-        <li>Facebook: Louie James Baculio</li>
-        <li>Instagram: _louyxs_</li>
+        <li><a class="contact-link" href="mailto:louiejamesbaculio@email.com">Email: louiejamesbaculio@email.com</a></li>
+        <li><a class="contact-link" href="tel:09155819112">Phone: 09155819112</a></li>
+        <li><a class="contact-link" href="https://www.facebook.com/louiejamesbaculio" target="_blank">Facebook: Louie James Baculio</a></li>
+        <li><a class="contact-link" href="https://www.instagram.com/_louyxs_" target="_blank">Instagram: _louyxs_</a></li>
       </ul>
     </section>
   </main>
