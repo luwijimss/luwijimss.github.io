@@ -31,7 +31,6 @@ nav {
   gap: 25px;
   padding: 15px 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 nav a {
@@ -39,12 +38,6 @@ nav a {
   text-decoration: none;
   font-weight: 600;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: #00e5ff;
-  transform: scale(1.1);
 }
 
 /* --- Container --- */
@@ -54,7 +47,6 @@ nav a:hover {
   padding: 40px;
   background-color: #1a1a2e;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,188,212,0.3);
 }
 
 /* --- Header --- */
@@ -68,45 +60,43 @@ header img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
   border: 3px solid #00bcd4;
 }
 
 header h1 {
   color: #00bcd4;
-  font-size: 36px;
 }
 
 .subtitle {
   color: #80deea;
-  margin-bottom: 30px;
 }
 
 /* --- Sections --- */
 section {
-  margin-top: 160px;
-  transition: all 0.6s ease;
-  filter: blur(7px);
+  margin-top: 150px;
+  transition: filter 0.6s ease, opacity 0.6s ease;
+}
+
+section.blurred {
+  filter: blur(6px);
   opacity: 0.35;
+  pointer-events: none;
 }
 
 section.active {
   filter: blur(0);
   opacity: 1;
+  pointer-events: auto;
 }
 
-/* --- Titles --- */
 h2 {
   color: #00bcd4;
-  border-bottom: 2px solid #00bcd4;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 /* --- Text --- */
 p, li {
   line-height: 1.7;
-  color: #cfd8dc;
 }
 
 ul {
@@ -116,18 +106,12 @@ ul {
 /* --- Badges --- */
 .skill, .hobby, .interest {
   display: inline-block;
-  background: #00bcd4;
+  background-color: #00bcd4;
   color: #0f0f1a;
   padding: 8px 15px;
   border-radius: 20px;
   margin: 5px;
   cursor: pointer;
-  transition: 0.3s;
-}
-
-.skill:hover, .hobby:hover, .interest:hover {
-  background: #00e5ff;
-  transform: scale(1.1);
 }
 
 /* --- Modal --- */
@@ -144,12 +128,10 @@ ul {
 
 .modal img {
   max-width: 80%;
-  border-radius: 10px;
   margin-bottom: 15px;
 }
 
 .modal-desc {
-  color: #00bcd4;
   max-width: 700px;
   text-align: center;
 }
@@ -159,15 +141,7 @@ ul {
   top: 20px;
   right: 40px;
   font-size: 40px;
-  color: #00bcd4;
   cursor: pointer;
-}
-
-/* --- Footer --- */
-footer {
-  margin-top: 80px;
-  text-align: center;
-  color: #80deea;
 }
 </style>
 </head>
@@ -185,96 +159,129 @@ footer {
 
 <div id="modal" class="modal">
   <span class="close">&times;</span>
-  <img class="modal-img">
+  <img class="modal-img" src="">
   <div class="modal-desc"></div>
 </div>
 
 <div class="container">
 <header>
-  <img src="loy.jpg" alt="Profile">
+  <img src="loy.jpg">
   <div>
     <h1>Louie James D. Baculio</h1>
-    <div class="subtitle">Senior High School Student • University Honor</div>
+    <div class="subtitle">
+      Senior High School Student • Liceo de Cagayan University • University Honor
+    </div>
   </div>
 </header>
 
 <main>
 
 <section id="about">
-  <h2>About Me</h2>
-  <p>...</p>
+<h2>About Me</h2>
+<p>
+Hello! My name is Louie James D. Baculio, and I am 17 years Old. I am a student driven by curiosity,
+creativity, and a strong interest in frontend design and web development. From a young age, I have been
+fascinated by how websites and digital interfaces are built and how design and code come together to create 
+engaging user experiences. What excites me most about frontend design is the ability to turn ideas into
+interactive, visually appealing, and functional digital products.
+As I continue my journey in technology, I focus on learning and improving my skills in frontend development,
+combining creativity with problem-solving and attention to detail. Every project I work on helps me better
+understand how design, responsiveness, and performance impact user experience. I strive to build interfaces
+that are not only visually attractive but also accessible and user-friendly.
+Outside of academics, I enjoy resting, reading to expand my knowledge, and spending time with the people
+who motivate me. I am proud to be recognized for my academic efforts and remain passionate about frontend
+design, where creativity and technology come together to bring ideas to life.
+</p>
 </section>
 
 <section id="education">
-  <h2>Education</h2>
-  <ul>
-    <li>Liceo de Cagayan University – SHS – University Honor</li>
-    <li>Pagatpat National High School – JHS</li>
-    <li>Pagatpat Elementary School</li>
-  </ul>
+<h2>Education</h2>
+<ul>
+<li>Liceo de Cagayan University – Senior High School - Present - University Honor</li>
+<li>Pagatpat National High School – Junior High School – 2023 - Consistent Honor Student</li>
+<li>Pagatpat Elementary School – Elementary – 2019</li>
+</ul>
 </section>
 
 <section id="skills">
-  <h2>Skills</h2>
-  <span class="skill" data-title="Frontend" data-img="loy.jpg" data-desc="Frontend development using HTML, CSS, JS">🖥 Frontend</span>
+<h2>Skills</h2>
+<span class="skill" data-title="Basic Computer Wirings" data-img="https://via.placeholder.com/400x200" data-desc="I can do basic computer wirings including connecting components and troubleshooting. Because of my CSS training at 4J and E Technical School">💻 Basic Computer Wirings</span>
+<span class="skill" data-title="Graphic Designing" data-img="https://via.placeholder.com/400x200" data-desc="I create visual designs using tools like Photoshop and Canva. mainly Because I am the Assign Daily poster of Our Church Youth Organization">🎨 Graphic Designing</span>
+<span class="skill" data-title="Frontend Designing" data-img="https://via.placeholder.com/400x200" data-desc="I build interactive Basic and responsive web interfaces using HTML, CSS, and JS. thanks to my Titos And kuyas who Teach me but Im still at the Biginner stage">🖥️ Frontend Designing</span>
 </section>
 
 <section id="interests">
-  <h2>Interests</h2>
-  <span class="interest" data-title="Anime" data-img="loy.jpg" data-desc="Anime storytelling and art">🌸 Anime</span>
+<h2>Interests</h2>
+<span class="interest" data-title="Music/Instruments" data-img="https://via.placeholder.com/400x200" data-desc="I love music and enjoy playing instruments. i think Music Is Medicine to all It just Give me Peace when My Mind Is loaded with all And Everything">🎵 Music/Instruments</span>
+<span class="interest" data-title="Thrilling Stuffs" data-img="https://via.placeholder.com/400x200" data-desc="I like adventurous and thrilling activities I dont know maybe im just explorer You Can Say Im That One Hardcore Friend">⚡ Thrilling Stuffs</span>
+<span class="interest" data-title="Anime" data-img="https://via.placeholder.com/400x200" data-desc="I enjoy watching anime for storytelling and art and it also calms My mind When Im Stressed">🌸 Anime</span>
+<span class="interest" data-title="Movies" data-img="https://via.placeholder.com/400x200" data-desc="I watch movies to relax and learn new perspectives.">🎥 Movies</span>
 </section>
 
 <section id="hobbies">
-  <h2>Hobbies</h2>
-  <span class="hobby" data-title="Badminton" data-img="loy.jpg" data-desc="Competitive badminton player">🏸 Badminton</span>
+<h2>Hobbies</h2>
+<span class="hobby" data-title="Playing Instruments" data-img="https://via.placeholder.com/400x200" data-desc="I play various musical instruments for fun and skill development And Im Proud To Say I can Play more than 5 Instruments, And i think its because im part of the music team in our church">🎹 Playing Instruments</span>
+<span class="hobby" data-title="Playing Badminton" data-img="https://via.placeholder.com/400x200" data-desc="I enjoy playing badminton to stay active and competitive And Badminton Has Always Been My sport Ever Since, im also once a player in my previous school.">🏸 Playing Badminton</span>
+<span class="hobby" data-title="Watching Movies/Anime" data-img="https://via.placeholder.com/400x200" data-desc="I watch movies and anime for entertainment and inspiration.">🎬 Watching Movies & Anime</span>
+<span class="hobby" data-title="Cooking" data-img="https://via.placeholder.com/400x200" data-desc="I like to cook different dishes to learn and relax.">🍳 Cooking</span>
+<span class="hobby" data-title="Sleeping" data-img="https://via.placeholder.com/400x200" data-desc="I rest and sleep to recharge my energy and focus and Maybe Because I feel like When I sleep, once I woke Up all my problem will restart And I can get to Do Task I fail to Do">🛌 Sleeping</span>
 </section>
 
 <section id="contact">
-  <h2>Contact</h2>
-  <p>Email: louiejamesbaculio@email.com</p>
+<h2>Contact</h2>
+<ul>
+<li>Email: louiejamesbaculio@email.com</li>
+<li>Phone: 09155819112</li>
+</ul>
 </section>
 
 </main>
-
-<footer>© 2025 Louie James D. Baculio</footer>
 </div>
 
 <script>
 const sections = document.querySelectorAll("section");
 
-/* Center scroll */
+function updateFocus() {
+  const center = window.innerHeight / 2;
+
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const sectionCenter = rect.top + rect.height / 2;
+
+    if (Math.abs(sectionCenter - center) < rect.height / 2) {
+      section.classList.add("active");
+      section.classList.remove("blurred");
+    } else {
+      section.classList.remove("active");
+      section.classList.add("blurred");
+    }
+  });
+}
+
+window.addEventListener("scroll", updateFocus);
+window.addEventListener("load", updateFocus);
+
 document.querySelectorAll("nav a").forEach(link => {
   link.addEventListener("click", () => {
-    const target = document.getElementById(link.dataset.target);
-    target.scrollIntoView({ behavior: "smooth", block: "center" });
+    document.getElementById(link.dataset.target)
+      .scrollIntoView({ behavior: "smooth", block: "center" });
   });
 });
 
-/* Focus observer */
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      sections.forEach(s => s.classList.remove("active"));
-      entry.target.classList.add("active");
-    }
-  });
-}, { threshold: 0.6 });
-
-sections.forEach(section => observer.observe(section));
-
-/* Modal */
+/* --- Modal --- */
 const modal = document.getElementById("modal");
 const modalImg = document.querySelector(".modal-img");
 const modalDesc = document.querySelector(".modal-desc");
-document.querySelectorAll(".skill,.hobby,.interest").forEach(item => {
+
+document.querySelectorAll(".skill,.interest,.hobby").forEach(item => {
   item.onclick = () => {
     modal.style.display = "flex";
     modalImg.src = item.dataset.img;
-    modalDesc.innerHTML = `<b>${item.dataset.title}</b><br>${item.dataset.desc}`;
+    modalDesc.innerHTML = `<strong>${item.dataset.title}</strong><br>${item.dataset.desc}`;
   };
 });
+
 document.querySelector(".close").onclick = () => modal.style.display = "none";
-modal.onclick = e => e.target === modal && (modal.style.display = "none");
 </script>
 
 </body>
