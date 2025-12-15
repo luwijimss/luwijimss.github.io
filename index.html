@@ -4,11 +4,9 @@
 <meta charset="UTF-8">
 <title>Louie James D. Baculio | Portfolio</title>
 
-<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-/* --- Reset & Base --- */
 * {
   margin: 0;
   padding: 0;
@@ -33,20 +31,13 @@ nav {
   gap: 25px;
   padding: 15px 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 nav a {
   color: #00bcd4;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.3s;
   cursor: pointer;
-}
-
-nav a:hover {
-  color: #00e5ff;
-  transform: scale(1.1);
 }
 
 /* --- Container --- */
@@ -56,15 +47,12 @@ nav a:hover {
   padding: 40px;
   background-color: #1a1a2e;
   border-radius: 12px;
-  box-shadow: 0 0 20px rgba(0,188,212,0.3);
-  overflow: hidden;
 }
 
 /* --- Header --- */
 header {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -72,140 +60,94 @@ header img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
   border: 3px solid #00bcd4;
 }
 
 header h1 {
-  font-size: 36px;
   color: #00bcd4;
 }
 
 .subtitle {
-  font-size: 16px;
   color: #80deea;
-  margin-bottom: 30px;
 }
 
 /* --- Sections --- */
 section {
-  margin-top: 120px; /* vertical spacing */
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease-in-out;
-  cursor: pointer;
+  margin-top: 150px;
+  transition: filter 0.6s ease, opacity 0.6s ease;
 }
 
-section.visible {
+section.blurred {
+  filter: blur(6px);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+section.active {
+  filter: blur(0);
   opacity: 1;
-  transform: translateY(0);
+  pointer-events: auto;
 }
 
 h2 {
-  font-size: 28px;
   color: #00bcd4;
-  border-bottom: 2px solid #00bcd4;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-/* --- Paragraphs & Lists --- */
+/* --- Text --- */
 p, li {
-  font-size: 16px;
   line-height: 1.7;
-  color: #cfd8dc;
 }
 
 ul {
   margin-left: 20px;
 }
 
-/* --- Skills / Hobbies / Interests Badges --- */
+/* --- Badges --- */
 .skill, .hobby, .interest {
   display: inline-block;
   background-color: #00bcd4;
   color: #0f0f1a;
   padding: 8px 15px;
   border-radius: 20px;
-  font-size: 14px;
-  transition: transform 0.3s, background-color 0.3s;
+  margin: 5px;
   cursor: pointer;
-  margin-bottom: 5px;
-}
-
-.skill:hover, .hobby:hover, .interest:hover {
-  background-color: #00e5ff;
-  transform: scale(1.1);
-}
-
-/* --- Contact Links --- */
-.contact-link {
-  color: #00bcd4;
-  text-decoration: none;
-  transition: all 0.3s;
-}
-
-.contact-link:hover {
-  color: #00e5ff;
-  transform: scale(1.05);
-}
-
-/* --- Footer --- */
-footer {
-  margin-top: 60px;
-  text-align: center;
-  font-size: 14px;
-  color: #80deea;
 }
 
 /* --- Modal --- */
 .modal {
   display: none;
   position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
   z-index: 2000;
-  left: 0; top: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.9);
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #00bcd4;
-  padding: 20px;
 }
 
 .modal img {
   max-width: 80%;
-  border-radius: 10px;
   margin-bottom: 15px;
 }
 
 .modal-desc {
-  font-size: 16px;
   max-width: 700px;
   text-align: center;
 }
 
-.modal .close {
+.close {
   position: absolute;
-  top: 20px; right: 40px;
-  color: #00bcd4;
+  top: 20px;
+  right: 40px;
   font-size: 40px;
   cursor: pointer;
-}
-
-/* --- Responsive --- */
-@media screen and (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: center;
-  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- --- Navigation --- -->
 <nav>
   <a data-target="about">About</a>
   <a data-target="education">Education</a>
@@ -215,16 +157,15 @@ footer {
   <a data-target="contact">Contact</a>
 </nav>
 
-<!-- --- Modal --- -->
 <div id="modal" class="modal">
   <span class="close">&times;</span>
-  <img class="modal-img" src="" alt="">
+  <img class="modal-img" src="">
   <div class="modal-desc"></div>
 </div>
 
 <div class="container">
 <header>
-  <img src="loy.jpg" alt="ako.jpg">
+  <img src="loy.jpg">
   <div>
     <h1>Louie James D. Baculio</h1>
     <div class="subtitle">
@@ -233,35 +174,36 @@ footer {
   </div>
 </header>
 
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        Hello!! My Name is Louie James D. Baculio, and I am 17 years Old. I am a student driven by curiosity,
-        creativity, and a strong interest in frontend design and web development. From a young age, I have been
-        fascinated by how websites and digital interfaces are built and how design and code come together to create 
-        engaging user experiences. What excites me most about frontend design is the ability to turn ideas into
-        interactive, visually appealing, and functional digital products.
-        As I continue my journey in technology, I focus on learning and improving my skills in frontend development,
-        combining creativity with problem-solving and attention to detail. Every project I work on helps me better
-        understand how design, responsiveness, and performance impact user experience. I strive to build interfaces
-        that are not only visually attractive but also accessible and user-friendly.
-        Outside of academics, I enjoy resting, reading to expand my knowledge, and spending time with the people
-        who motivate me. I am proud to be recognized for my academic efforts and remain passionate about frontend
-        design, where creativity and technology come together to bring ideas to life.
-      </p>
-    </section>
+<main>
 
-    <section id="education">
-      <h2>Education</h2>
-      <ul>
-        <li>Liceo de Cagayan University – Senior High School - Present - University Honor</li>
-        <li>Pagatpat National High School – Junior High School – 2023 - Consistent Honor Student</li>
-        <li>Pagatpat Elementary School – Elementary – 2019</li>
-      </ul>
-    </section>
+<section id="about">
+<h2>About Me</h2>
+<p>
+Hello! My name is Louie James D. Baculio, and I am 17 years Old. I am a student driven by curiosity,
+creativity, and a strong interest in frontend design and web development. From a young age, I have been
+fascinated by how websites and digital interfaces are built and how design and code come together to create 
+engaging user experiences. What excites me most about frontend design is the ability to turn ideas into
+interactive, visually appealing, and functional digital products.
+As I continue my journey in technology, I focus on learning and improving my skills in frontend development,
+combining creativity with problem-solving and attention to detail. Every project I work on helps me better
+understand how design, responsiveness, and performance impact user experience. I strive to build interfaces
+that are not only visually attractive but also accessible and user-friendly.
+Outside of academics, I enjoy resting, reading to expand my knowledge, and spending time with the people
+who motivate me. I am proud to be recognized for my academic efforts and remain passionate about frontend
+design, where creativity and technology come together to bring ideas to life.
+</p>
+</section>
 
-   <section id="skills">
+<section id="education">
+<h2>Education</h2>
+<ul>
+<li>Liceo de Cagayan University – Senior High School - Present - University Honor</li>
+<li>Pagatpat National High School – Junior High School – 2023 - Consistent Honor Student</li>
+<li>Pagatpat Elementary School – Elementary – 2019</li>
+</ul>
+</section>
+
+<section id="skills">
 <h2>Skills</h2>
 <span class="skill" data-title="Basic Computer Wirings" data-img="https://via.placeholder.com/400x200" data-desc="I can do basic computer wirings including connecting components and troubleshooting. Because of my CSS training at 4J and E Technical School">💻 Basic Computer Wirings</span>
 <span class="skill" data-title="Graphic Designing" data-img="https://via.placeholder.com/400x200" data-desc="I create visual designs using tools like Photoshop and Canva. mainly Because I am the Assign Daily poster of Our Church Youth Organization">🎨 Graphic Designing</span>
@@ -285,65 +227,61 @@ footer {
 <span class="hobby" data-title="Sleeping" data-img="https://via.placeholder.com/400x200" data-desc="I rest and sleep to recharge my energy and focus and Maybe Because I feel like When I sleep, once I woke Up all my problem will restart And I can get to Do Task I fail to Do">🛌 Sleeping</span>
 </section>
 
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li><a class="contact-link" href="mailto:louiejamesbaculio@email.com">Email: louiejamesbaculio@email.com</a></li>
-        <li><a class="contact-link" href="tel:09155819112">Phone: 09155819112</a></li>
-        <li><a class="contact-link" href="https://www.facebook.com/louiejamesbaculio" target="_blank">Facebook: Louie James Baculio</a></li>
-        <li><a class="contact-link" href="https://www.instagram.com/_louyxs_" target="_blank">Instagram: _louyxs_</a></li>
-      </ul>
-    </section>
-  </main>
+<section id="contact">
+<h2>Contact</h2>
+<ul>
+<li>Email: louiejamesbaculio@email.com</li>
+<li>Phone: 09155819112</li>
+</ul>
+</section>
 
-  <footer>
-    © 2025 Louie James D. Baculio
-  </footer>
+</main>
 </div>
 
 <script>
-// --- Section Fade-in Animation ---
 const sections = document.querySelectorAll("section");
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("visible");
+
+function updateFocus() {
+  const center = window.innerHeight / 2;
+
+  sections.forEach(section => {
+    const rect = section.getBoundingClientRect();
+    const sectionCenter = rect.top + rect.height / 2;
+
+    if (Math.abs(sectionCenter - center) < rect.height / 2) {
+      section.classList.add("active");
+      section.classList.remove("blurred");
+    } else {
+      section.classList.remove("active");
+      section.classList.add("blurred");
     }
   });
-}, { threshold: 0.1 });
+}
 
-sections.forEach(section => observer.observe(section));
+window.addEventListener("scroll", updateFocus);
+window.addEventListener("load", updateFocus);
 
-// --- Modal Handling for individual items ---
-const modal = document.getElementById('modal');
-const modalImg = document.querySelector('.modal-img');
-const modalDesc = document.querySelector('.modal-desc');
-const closeBtn = document.querySelector('.close');
-
-document.querySelectorAll('.skill, .hobby, .interest').forEach(item => {
-  item.addEventListener('click', () => {
-    const img = item.dataset.img;
-    const desc = item.dataset.desc;
-    const title = item.dataset.title;
-    modal.style.display = 'flex';
-    modalImg.src = img;
-    modalDesc.innerHTML = `<strong>${title}</strong><br>${desc}`;
+document.querySelectorAll("nav a").forEach(link => {
+  link.addEventListener("click", () => {
+    document.getElementById(link.dataset.target)
+      .scrollIntoView({ behavior: "smooth", block: "center" });
   });
 });
 
-closeBtn.addEventListener('click', () => modal.style.display = 'none');
-modal.addEventListener('click', e => { if(e.target === modal) modal.style.display = 'none'; });
+/* --- Modal --- */
+const modal = document.getElementById("modal");
+const modalImg = document.querySelector(".modal-img");
+const modalDesc = document.querySelector(".modal-desc");
 
-// --- Smooth scroll centered ---
-document.querySelectorAll('nav a').forEach(link => {
-  link.addEventListener('click', (e) => {
-    const targetId = link.getAttribute('data-target');
-    const targetSection = document.getElementById(targetId);
-    if(targetSection){
-      targetSection.scrollIntoView({behavior: 'smooth', block: 'center'});
-    }
-  });
+document.querySelectorAll(".skill,.interest,.hobby").forEach(item => {
+  item.onclick = () => {
+    modal.style.display = "flex";
+    modalImg.src = item.dataset.img;
+    modalDesc.innerHTML = `<strong>${item.dataset.title}</strong><br>${item.dataset.desc}`;
+  };
 });
+
+document.querySelector(".close").onclick = () => modal.style.display = "none";
 </script>
 
 </body>
