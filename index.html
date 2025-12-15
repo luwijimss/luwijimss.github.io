@@ -20,7 +20,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* --- Navigation --- */
+/* Navigation */
 nav {
   position: sticky;
   top: 0;
@@ -31,28 +31,38 @@ nav {
   gap: 25px;
   padding: 15px 0;
   z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 nav a {
   color: #00bcd4;
   text-decoration: none;
   font-weight: 600;
+  transition: all 0.3s;
   cursor: pointer;
 }
 
-/* --- Container --- */
+nav a:hover {
+  color: #00e5ff;
+  transform: scale(1.1);
+}
+
+/* Container */
 .container {
   max-width: 900px;
   margin: 60px auto;
   padding: 40px;
   background-color: #1a1a2e;
   border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,188,212,0.3);
+  overflow: hidden;
 }
 
-/* --- Header --- */
+/* Header */
 header {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
@@ -60,88 +70,93 @@ header img {
   width: 120px;
   height: 120px;
   border-radius: 50%;
+  object-fit: cover;
   border: 3px solid #00bcd4;
 }
 
 header h1 {
+  font-size: 36px;
   color: #00bcd4;
 }
 
 .subtitle {
+  font-size: 16px;
   color: #80deea;
+  margin-bottom: 30px;
 }
 
-/* --- Sections --- */
+/* Sections */
 section {
-  margin-top: 150px;
-  transition: filter 0.6s ease, opacity 0.6s ease;
+  margin-top: 120px;
+  transition: all 0.6s ease;
 }
 
 section.blurred {
   filter: blur(6px);
-  opacity: 0.35;
-  pointer-events: none;
+  opacity: 0.4;
 }
 
 section.active {
-  filter: blur(0);
+  filter: none;
   opacity: 1;
-  pointer-events: auto;
 }
 
 h2 {
+  font-size: 28px;
   color: #00bcd4;
-  margin-bottom: 10px;
+  border-bottom: 2px solid #00bcd4;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
 }
 
-/* --- Text --- */
 p, li {
+  font-size: 16px;
   line-height: 1.7;
+  color: #cfd8dc;
 }
 
 ul {
   margin-left: 20px;
 }
 
-/* --- Badges --- */
+/* Badges */
 .skill, .hobby, .interest {
   display: inline-block;
   background-color: #00bcd4;
   color: #0f0f1a;
   padding: 8px 15px;
   border-radius: 20px;
-  margin: 5px;
+  font-size: 14px;
+  transition: transform 0.3s, background-color 0.3s;
   cursor: pointer;
+  margin-bottom: 5px;
 }
 
-/* --- Modal --- */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.9);
-  z-index: 2000;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.skill:hover, .hobby:hover, .interest:hover {
+  background-color: #00e5ff;
+  transform: scale(1.1);
 }
 
-.modal img {
-  max-width: 80%;
-  margin-bottom: 15px;
+/* Contact NEVER blurs */
+#contact {
+  filter: none !important;
+  opacity: 1 !important;
 }
 
-.modal-desc {
-  max-width: 700px;
+/* Footer */
+footer {
+  margin-top: 60px;
   text-align: center;
+  font-size: 14px;
+  color: #80deea;
 }
 
-.close {
-  position: absolute;
-  top: 20px;
-  right: 40px;
-  font-size: 40px;
-  cursor: pointer;
+/* Responsive */
+@media screen and (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 </style>
 </head>
@@ -157,15 +172,9 @@ ul {
   <a data-target="contact">Contact</a>
 </nav>
 
-<div id="modal" class="modal">
-  <span class="close">&times;</span>
-  <img class="modal-img" src="">
-  <div class="modal-desc"></div>
-</div>
-
 <div class="container">
 <header>
-  <img src="loy.jpg">
+  <img src="loy.jpg" alt="ako.jpg">
   <div>
     <h1>Louie James D. Baculio</h1>
     <div class="subtitle">
@@ -205,26 +214,26 @@ design, where creativity and technology come together to bring ideas to life.
 
 <section id="skills">
 <h2>Skills</h2>
-<span class="skill" data-title="Basic Computer Wirings" data-img="https://via.placeholder.com/400x200" data-desc="I can do basic computer wirings including connecting components and troubleshooting. Because of my CSS training at 4J and E Technical School">💻 Basic Computer Wirings</span>
-<span class="skill" data-title="Graphic Designing" data-img="https://via.placeholder.com/400x200" data-desc="I create visual designs using tools like Photoshop and Canva. mainly Because I am the Assign Daily poster of Our Church Youth Organization">🎨 Graphic Designing</span>
-<span class="skill" data-title="Frontend Designing" data-img="https://via.placeholder.com/400x200" data-desc="I build interactive Basic and responsive web interfaces using HTML, CSS, and JS. thanks to my Titos And kuyas who Teach me but Im still at the Biginner stage">🖥️ Frontend Designing</span>
+<span class="skill">💻 Basic Computer Wirings</span>
+<span class="skill">🎨 Graphic Designing</span>
+<span class="skill">🖥️ Frontend Designing</span>
 </section>
 
 <section id="interests">
 <h2>Interests</h2>
-<span class="interest" data-title="Music/Instruments" data-img="https://via.placeholder.com/400x200" data-desc="I love music and enjoy playing instruments. i think Music Is Medicine to all It just Give me Peace when My Mind Is loaded with all And Everything">🎵 Music/Instruments</span>
-<span class="interest" data-title="Thrilling Stuffs" data-img="https://via.placeholder.com/400x200" data-desc="I like adventurous and thrilling activities I dont know maybe im just explorer You Can Say Im That One Hardcore Friend">⚡ Thrilling Stuffs</span>
-<span class="interest" data-title="Anime" data-img="https://via.placeholder.com/400x200" data-desc="I enjoy watching anime for storytelling and art and it also calms My mind When Im Stressed">🌸 Anime</span>
-<span class="interest" data-title="Movies" data-img="https://via.placeholder.com/400x200" data-desc="I watch movies to relax and learn new perspectives.">🎥 Movies</span>
+<span class="interest">🎵 Music/Instruments</span>
+<span class="interest">⚡ Thrilling Stuffs</span>
+<span class="interest">🌸 Anime</span>
+<span class="interest">🎥 Movies</span>
 </section>
 
 <section id="hobbies">
 <h2>Hobbies</h2>
-<span class="hobby" data-title="Playing Instruments" data-img="https://via.placeholder.com/400x200" data-desc="I play various musical instruments for fun and skill development And Im Proud To Say I can Play more than 5 Instruments, And i think its because im part of the music team in our church">🎹 Playing Instruments</span>
-<span class="hobby" data-title="Playing Badminton" data-img="https://via.placeholder.com/400x200" data-desc="I enjoy playing badminton to stay active and competitive And Badminton Has Always Been My sport Ever Since, im also once a player in my previous school.">🏸 Playing Badminton</span>
-<span class="hobby" data-title="Watching Movies/Anime" data-img="https://via.placeholder.com/400x200" data-desc="I watch movies and anime for entertainment and inspiration.">🎬 Watching Movies & Anime</span>
-<span class="hobby" data-title="Cooking" data-img="https://via.placeholder.com/400x200" data-desc="I like to cook different dishes to learn and relax.">🍳 Cooking</span>
-<span class="hobby" data-title="Sleeping" data-img="https://via.placeholder.com/400x200" data-desc="I rest and sleep to recharge my energy and focus and Maybe Because I feel like When I sleep, once I woke Up all my problem will restart And I can get to Do Task I fail to Do">🛌 Sleeping</span>
+<span class="hobby">🎹 Playing Instruments</span>
+<span class="hobby">🏸 Playing Badminton</span>
+<span class="hobby">🎬 Watching Movies & Anime</span>
+<span class="hobby">🍳 Cooking</span>
+<span class="hobby">🛌 Sleeping</span>
 </section>
 
 <section id="contact">
@@ -232,10 +241,14 @@ design, where creativity and technology come together to bring ideas to life.
 <ul>
 <li>Email: louiejamesbaculio@email.com</li>
 <li>Phone: 09155819112</li>
+<li>Facebook: Louie James Baculio</li>
+<li>Instagram: _louyxs_</li>
 </ul>
 </section>
 
 </main>
+
+<footer>© 2025 Louie James D. Baculio</footer>
 </div>
 
 <script>
@@ -245,6 +258,8 @@ function updateFocus() {
   const center = window.innerHeight / 2;
 
   sections.forEach(section => {
+    if (section.id === "contact") return;
+
     const rect = section.getBoundingClientRect();
     const sectionCenter = rect.top + rect.height / 2;
 
@@ -259,7 +274,7 @@ function updateFocus() {
 }
 
 window.addEventListener("scroll", updateFocus);
-window.addEventListener("load", updateFocus);
+updateFocus();
 
 document.querySelectorAll("nav a").forEach(link => {
   link.addEventListener("click", () => {
@@ -267,21 +282,6 @@ document.querySelectorAll("nav a").forEach(link => {
       .scrollIntoView({ behavior: "smooth", block: "center" });
   });
 });
-
-/* --- Modal --- */
-const modal = document.getElementById("modal");
-const modalImg = document.querySelector(".modal-img");
-const modalDesc = document.querySelector(".modal-desc");
-
-document.querySelectorAll(".skill,.interest,.hobby").forEach(item => {
-  item.onclick = () => {
-    modal.style.display = "flex";
-    modalImg.src = item.dataset.img;
-    modalDesc.innerHTML = `<strong>${item.dataset.title}</strong><br>${item.dataset.desc}`;
-  };
-});
-
-document.querySelector(".close").onclick = () => modal.style.display = "none";
 </script>
 
 </body>
